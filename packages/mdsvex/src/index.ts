@@ -95,7 +95,11 @@ export function transform(
 			allowDangerousHtml: true,
 			allowDangerousCharacters: true,
 		})
-		.use(transform_hast, { layout, layout_mode });
+		.use(transform_hast, { 
+			layout, 
+			layout_mode, 
+			extra_imports: (highlight || {imports: ''}).imports || '',
+		});
 
 	apply_plugins(rehypePlugins, toHAST);
 

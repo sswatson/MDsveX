@@ -279,9 +279,11 @@ function generate_layout({
 export function transform_hast({
 	layout,
 	layout_mode,
+	extra_imports='',
 }: {
 	layout: Layout | undefined;
 	layout_mode: LayoutMode;
+	extra_imports: string;
 }): Transformer {
 	return function transformer(tree, vFile) {
 		// we need to keep { and } intact for svelte, so reverse the escaping in links and images
@@ -361,12 +363,12 @@ export function transform_hast({
 			if (import_script && !instance[0]) {
 				instance.push({
 					type: 'raw',
-					value: `${newline}<script>${newline}\t${import_script}${newline}</script>${newline}`,
+					value: `${newline}<script>${newline}\t${import_script}${newline}${extra_imports}${newline}</script>${newline}`,
 				});
 			} else if (import_script) {
 				instance[0].value = (instance[0].value as string).replace(
 					RE_SCRIPT,
-					`$1${newline}\t${import_script}`
+					`$1${newline}\t${import_script}${newline}${extra_imports}`
 				);
 			}
 

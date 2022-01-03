@@ -1,8 +1,8 @@
 {
-	"name": "mdsvex",
+	"name": "@sswatson/mdsvex",
 	"version": "0.8.5",
 	"description": "Markdown preprocessor for Svelte",
-	"repository": "https://github.com/pngwn/MDsveX",
+	"repository": "https://github.com/sswatson/MDsveX",
 	"scripts": {
 		"format": "prettier --check .",
 		"test": "uvu -r ts-node/register packages test.ts$",

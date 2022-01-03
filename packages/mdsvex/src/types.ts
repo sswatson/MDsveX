@@ -178,6 +178,7 @@ interface HighlightOptions {
 	 * ```
 	 */
 	alias?: Record<string, string>;
+	imports?: string;
 }
 
 export type UnifiedPlugins = Array<[Plugin, Settings] | Plugin>;
